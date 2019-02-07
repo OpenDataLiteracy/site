@@ -81,6 +81,13 @@ members:
     social:
       - title: envelope #use for email address
         url: mailto:norlab@uw.edu
+  - name: Kaitlin Throgmorton
+    position: Research Assistant
+    text: Kaitlin Throgmorton is in the first year of her M.L.I.S. at the University of Washington.
+    img: kthrogmorton.png
+    social:
+      - title: envelope #use for email address
+        url: mailto:kthrog@uw.edu      
   - name: Chris Coward
     position: 
     text: Chris Coward is the Co-Founder, Principal Research Scientist, and Director of the Technology & Social Change Group (TASCHA) at the University of Washington Information School. 
