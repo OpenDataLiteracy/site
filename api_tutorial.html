@@ -11,14 +11,29 @@ permalink: /api_tutorial/
             <!--add content below this comment-->
             <!--headers need ids in order to render automatically in the table of contents-->
             
-            <h1> Tutorial: Introduction to APIs for Open Government Data</h1>
+            <h1> Tutorial: APIs for Open Government Data</h1>
             <p>
             <h4> Authored by: An Yan & Bree Norlander</h4>
             <p>Collecting data is essential for data curators. In order to learn how to collect data, this tutorial introduces users to the concept of an API. Users will learn examples of and practical guidelines for accessing data and metadata from public sources using APIs. Specifically, this tutorial first teaches users how to work with SODA API, which is provided by an Open Government Data (OGD) Portal provider, <a href="https://socrata.com" target="_blank">Socrata</a>. Once the tutorial is complete, users will know how to retrieve open government datasets and their metadata through the <a href="https://dev.socrata.com/consumers/getting-started.html" target="_blank">SODA API</a>, <a href="https://socratadiscovery.docs.apiary.io/#" target="_blank">Discovery API</a>, and <a href="https://socratametadataapi.docs.apiary.io/#" target="_blank">Metadata API</a>.
             <p>
+            <h4> Learning Objectives </h>
+            <p> <ul> 
+            <li>Understand the concept of an API</li>
+            <li>Use an API to collect data from public data sources such as open government data portals and open research data repositories.</li></ul>
+            <h4> Prerequisites </h>
+            <p> <ul> 
+            <li>Computer and internet access.
+            <li>Basic knowledge of any programming language would be helpful, but not required.</li>
+            <li>Basic understanding of open data and data repositories; knowledge of popular open data portal software providers (CKAN, Socrata, Dataverse, etc.)</li>
+            <li>Familiarity with common web exchange file formats, such as JSON, XML, and CSV.</li></ul>
+
             
-            <h1 id="myHeader">testing toc</h1>
-            <p>Open Data Literacy is a three-year IMLS grant funded project focused on improving accessibility and use of open data - focused specifically on communities that can benefit most from public sector information. Practically, ODL will advance data literacy by developing new curriculum for iSchool students and public librarians; coordinating internships, fieldwork, and action research projects between UW and public institutions with open data initiatives, and; producing community workshops and open education resources that are freely available to the general public.</p>
+            <h1 id="myHeader">Introduction to API</h1>
+            <p>API stands for Application Programming Interface. An API defines how different applications or different components of software talk to each other, providing a way for developers to simplify programming. Just as a graphical user interface makes it easier for people to use programs, APIs make it easier for developers to use certain functions or data from another application (or another component of an application) without knowing the implementation details [1][2].</p>
+            <p>In this lab, we will focus on web APIs. Some applications such as Facebook, Twitter, and Google Map provide services and data through Web APIs. The API is the part of the application that receives requests and sends responses. For example, if you are an iPhone user and you use Yelp to search for a restaurant, you will see an Apple Map embedded in Yelp showing you the location of the restaurant. Yelp does not provide map services itself, but it uses Apple map’s API to integrate with its own functions. Another example of API usage is the Google or Facebook log-in capability on other platforms. When you sign up for a non-Google, non-Facebook website, they may ask if you want to sign in with a Facebook or Google account. This website is using Facebook or Google API to retrieve your account information. </p>
+            <p>The APIs that will be used in this lab adhere to an architectural style called REST (Representational State Transfer). “REST services tend to offer an easy-to-parse URL structure consisting of nouns that reflect the logical hierarchical categories of the data on offer” (Maddox, 2014). An example of a REST API web URL is: http://api.us.socrata.com/api/catalog/v1/domains. When using a REST API, you will need to know how to structure your query. The rules for doing so can usually be found in the API documentation of a web application.</p>
+            <p>Why should we learn about API?  Software developers use APIs to create well-structured applications. Data scientists and data curators use APIs to collect large amounts of data automatically. Learning to access data and metadata using an API is the main objective of this lab.</p>
+                
             <h2 id="secondheading">testing toc</h2>
             <p>Our ongoing work includes diverse partners such as the Washington State Department of Transportation, the Seattle Public Library, the City of Seattle, and State of Washington’s Office of Innovation. We are also looking for additional partners throughout the country.</p>
             <h3 id="thirdheading">Is this TOC working?</h3>
