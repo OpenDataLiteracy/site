@@ -58,11 +58,11 @@ permalink: /api_tutorial/
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i3-findbyid.png">
             <p><b>Step 2:</b> After trying some of the examples in the documentation, try customizing your own API call in a browser window. Here are some examples:
             <p><ul>
-            <li><b>1)</b> Find the list of domains and the  resources count for each Socrata-hosted domain using the following API call (you can copy and paste this into a browser window): http://api.us.socrata.com/api/catalog/v1/domains.
+            <li><b>1)</b> Find the list of domains and the  resources count for each Socrata-hosted domain using the following API call (you can copy and paste this into a browser window): <a href="http://api.us.socrata.com/api/catalog/v1/domains" target="_blank">http://api.us.socrata.com/api/catalog/v1/domains</a>.
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i4-thingcodeportal.png">
             <p>“Thing” represents portals hosted by Socrata and “count” represents the number of resources each portal possesses. 
 You can then search within a particular domain. Here is an example: <a href="http://api.us.socrata.com/api/catalog/v1?domains=data.seattle.gov" target="_blank:>http://api.us.socrata.com/api/catalog/v1?domains=data.seattle.gov</a> (results using Firefox shown below).
-            <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i5-domain.png>
+            <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i5-domain.png">
             <p>Try it yourself with a different domain.</li>
            
             <li><b>2)</b> Get all metadata of resources that belong to category “public safety” using the following API call: <a href="http://api.us.socrata.com/api/catalog/v1?categories=public%20safety" target="_blank">http://api.us.socrata.com/api/catalog/v1?categories=public%20safety</a>. As we can see, the results contain metadata records that belong to category “public safety” of all Socrata-hosted portals.
@@ -73,7 +73,9 @@ You can then search within a particular domain. Here is an example: <a href="htt
             
             <p><b>Step 1:</b> Go to Socrata’s Metadata API page. Read the introduction and try a few examples on this page. For example, you could choose to retrieve all metadata on a domain (see image below). 
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i7-retrieveallmetadata.png">
+            <p>
             <p><b>Step 2:</b> Customize your API calls to retrieve metadata of interest to you. Add different parameters. For example, you can start by working with existing examples provided by Socrata. 
+            <p>
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i8-pagingthroughmetadata.png">
             <p>The API call, <a href="http://evergreen.data.socrata.com/api/views/metadata/v1?limit=10&page=1" target="_blank">http://evergreen.data.socrata.com/api/views/metadata/v1?limit=10&page=1</a> will return the 10 metadata records of page one from <a href="https://evergreen.data.socrata.com" target="_blank">https://evergreen.data.socrata.com</a>. 
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i9-americaincrisis.png">
