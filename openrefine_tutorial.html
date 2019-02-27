@@ -23,16 +23,59 @@ permalink: /openrefine_tutorial/
             <li>Use OpenRefine to do data cleaning.</li></ul>
             <h3 id="nextheadertwo"> Prerequisites </h3>
             <p> <ul> 
-            <li>Computer and internet access.
-            <li>Basic knowledge of any programming language would be helpful, but not required.</li>
+            <li>Computer and internet access
             <li>Basic understanding of open data and data repositories; knowledge of popular open data portal software providers (<a href="https://ckan.org" target="_blank">CKAN</a>, <a href="https://socrata.com" target="_blank">Socrata</a>, <a href="https://dataverse.org" target="_blank">Dataverse</a>, etc.)</li>
-            <li>Familiarity with common web exchange file formats, such as JSON, XML, and CSV.</li></ul>
-
-            
-            <h2 id="myHeader">Introduction to API</h2>
-            <p>API stands for Application Programming Interface. An API defines how different applications or different components of software talk to each other, providing a way for developers to simplify programming. Just as a graphical user interface makes it easier for people to use programs, APIs make it easier for developers to use certain functions or data from another application (or another component of an application) without knowing the implementation details [<a href="https://dev.socrata.com/consumers/getting-started.html" target="_blank">1</a>][<a href="2.	https://en.wikipedia.org/wiki/Application_programming_interface#Web_APIs" target="_blank">2</a>].</p>
-            <p>In this lab, we will focus on web APIs. Some applications such as Facebook, Twitter, and Google Map provide services and data through Web APIs. The API is the part of the application that receives requests and sends responses. For example, if you are an iPhone user and you use Yelp to search for a restaurant, you will see an Apple Map embedded in Yelp showing you the location of the restaurant. Yelp does not provide map services itself, but it uses Apple map’s API to integrate with its own functions. Another example of API usage is the Google or Facebook log-in capability on other platforms. When you sign up for a non-Google, non-Facebook website, they may ask if you want to sign in with a Facebook or Google account. This website is using Facebook or Google API to retrieve your account information. </p>
-            <p>The APIs that will be used in this lab adhere to an architectural style called REST (Representational State Transfer). “REST services tend to offer an easy-to-parse URL structure consisting of nouns that reflect the logical hierarchical categories of the data on offer” (Maddox, 2014). An example of a REST API web URL is: <a href="http://api.us.socrata.com/api/catalog/v1/domains" target="_blank">http://api.us.socrata.com/api/catalog/v1/domains</a>. When using a REST API, you will need to know how to structure your query. The rules for doing so can usually be found in the API documentation of a web application.</p>
-            <p>Why should we learn about API? Software developers use APIs to create well-structured applications. Data scientists and data curators use APIs to collect large amounts of data automatically. Learning to access data and metadata using an API is the main objective of this lab.</p>
+            <li>Familiarity with common web exchange file formats, such as JSON, XML, and CSV.</li>
+            <li>Basic knowledge of API. (View our <a href="http://odl.ischool.uw.edu/api_tutorial/" target="_blank">API tutorial</a>.</li></ul>
+			
+			
+            <h2 id="myHeader">Introduction to OpenRefine</h2>
+            <p>OpenRefine is similar Google spreadsheet in some sense. They both handle tabular data in a browser and allow sharing among different users. However, OpenRefine can deal with many data formats that are frequently used on web environment, such as HTML, JSON, XML. Those are the ones that excel spreadsheet cannot easily deal with. We can follow the download link in <a href="http://openrefine.org/download.html" target="_blank">this page</a> to get OpenRefine. Once we have it installed, click the icon and our browser will open automatically showing the OpenRefine workspace.</p>
                 
-            <h2 id="secondheading">Example Overview</h2>
+            <h2 id="secondheading">Example</h2>
+			
+			<p>This example is about maintaining a table of all open portals (most of them being open government portals) supported by Socrata, the number of resources each portal hosts, and the regional government or organization each portal represents. The data used in this example can be retrieved from Socarata API in JSON format using <a href="http://api.us.socrata.com/api/catalog/v1/domains">http://api.us.socrata.com/api/catalog/v1/domains</a>. We will use OpenRefine to transform it into a nice tabular format.
+			<p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorials-i1.png">
+			<p>Please refer to our previous tutorial on “Introduction to API for Open Government Data” for more details on data retrieval.
+			
+			<h3 id="exampleheadone">Step 1: Create project</h3>
+			
+			<p>In your browser, choose create project from “Web Addresses (URLs)” and paste the API call <a href="http://api.us.socrata.com/api/catalog/v1/domains" target="_blank">http://api.us.socrata.com/api/catalog/v1/domains</a>. This allows OpenRefine to retrieve data directly from API so that we do not need to download the data.
+			<p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorials-i2.png">
+			<p>Check the following boxes: “Parse cell text into numbers, dates” and “Trim leading and trailing whitespace from strings” and click “Create Project”.
+			<p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorials-i3.png">
+				
+			<h3 id="exampleheadone">Step 2: Remove and rename columns</h3>
+			
+			<p>Now we can see that the JSON format data has been converted into a table. But there are columns from the original data that we do not need, for example, the “resultSetSize” element. We can delete that column by clicking the small triangle at the column name, choose “Edit column” -> “Remove this column”.
+			<p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorials-i4.png">
+			<p>Using “Edit column” -&gt; “Rename this column”, we could clean up column names. In this example, columns are renamed to “data_portals” and “Item_count” from “results_domain” and “result_count”, respectively.
+			<p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorials-i5.png">
+			
+			<h3 id="exampleheadone">Step 3: Check duplicates</h3>
+			<p>OpenRefine makes it very easy to check duplicates based on columns. Use “Facet” -&gt; “Customized facets” -&gt; “Duplicates facet”, we could see in the left-hand panel, there is not any duplicate in “data_portals” column.
+				
+			<h3 id="exampleheadone">Step 4: Add columns and split string</h3>
+			<p>Now we want to add another column called “region” to store the names of the government or the organization hosting each portal, for example, NASA and Seattle. We could work from the urls and extract region names from them. For example, we could extract “seattle” from “data.seattle.gov”. The way we could achieve this is by splitting the urls by “.” (resulting in three elements: “data”, “seattle”, “gov”), and take the second element (“seattle”) out. We can use “Add column based on another column” to create a new column “region” based on “data_portals” column. To do that, we use the “General Refine Expression Language (GREL)” to implement splitting. Type in “split(value, ’.’)[1]” in “Expression” box to pull out the second element of the url and assign it to column “region”. For more on GREL, please visit the <a href="https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions" target="_blank">OpenRefine wiki page</a>.
+		   <p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorials-i6.png">
+			   
+		   <h3 id="exampleheadone">Step 5: Common transforms</h3>
+		   <p>After extracting region names out from urls, we may want to format them, for example, transform them into title case. OpenRefine allows for easy transformation by providing a set of functionalities under “Edit cell” -&gt; “Common transforms”. Let us make all region names title case.
+		   <p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorials-i7.png">
+			   
+		   <h3 id="exampleheadone">Step 6: Customized facets and transforms</h3>
+			   
+			
+			
+
+	       	
+		
+
+				
+
+
+
+			
+			
+				
+			
