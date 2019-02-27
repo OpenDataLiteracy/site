@@ -45,38 +45,71 @@ permalink: /openrefine_tutorial/
            <p>Check the following boxes: “Parse cell text into numbers, dates” and “Trim leading and trailing whitespace from strings” and click “Create Project”.
            <p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorial-i3.png">
 				
-		   <h3 id="exampleheadone">Step 2: Remove and rename columns</h3>
+		   <h3 id="exampleheadtwo">Step 2: Remove and rename columns</h3>
 			
 		   <p>Now we can see that the JSON format data has been converted into a table. But there are columns from the original data that we do not need, for example, the “resultSetSize” element. We can delete that column by clicking the small triangle at the column name, choose “Edit column” -> “Remove this column”.
 		   <p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorial-i4.png">
 		   <p>Using “Edit column” -&gt; “Rename this column”, we could clean up column names. In this example, columns are renamed to “data_portals” and “Item_count” from “results_domain” and “result_count”, respectively.
 		   <p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorial-i5.png">
 			
-	       <h3 id="exampleheadone">Step 3: Check duplicates</h3>
+	       <h3 id="exampleheadthree">Step 3: Check duplicates</h3>
 	       <p>OpenRefine makes it very easy to check duplicates based on columns. Use “Facet” -&gt; “Customized facets” -&gt; “Duplicates facet”, we could see in the left-hand panel, there is not any duplicate in “data_portals” column.
 				
-	       <h3 id="exampleheadone">Step 4: Add columns and split string</h3>
+	       <h3 id="exampleheadfour">Step 4: Add columns and split string</h3>
 		   <p>Now we want to add another column called “region” to store the names of the government or the organization hosting each portal, for example, NASA and Seattle. We could work from the urls and extract region names from them. For example, we could extract “seattle” from “data.seattle.gov”. The way we could achieve this is by splitting the urls by “.” (resulting in three elements: “data”, “seattle”, “gov”), and take the second element (“seattle”) out. We can use “Add column based on another column” to create a new column “region” based on “data_portals” column. To do that, we use the “General Refine Expression Language (GREL)” to implement splitting. Type in “split(value, ’.’)[1]” in “Expression” box to pull out the second element of the url and assign it to column “region”. For more on GREL, please visit the <a href="https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions" target="_blank">OpenRefine wiki page</a>.
 		   <p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorial-i6.png">
 			   
-		   <h3 id="exampleheadone">Step 5: Common transforms</h3>
+		   <h3 id="exampleheadfive">Step 5: Common transforms</h3>
 		   <p>After extracting region names out from urls, we may want to format them, for example, transform them into title case. OpenRefine allows for easy transformation by providing a set of functionalities under “Edit cell” -&gt; “Common transforms”. Let us make all region names title case.
 		   <p><img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorial-i7.png">
 			   
-		   <h3 id="exampleheadone">Step 6: Customized facets and transforms</h3>
+		   <h3 id="exampleheadsix">Step 6: Customized facets and transforms</h3>
+           <p>We may also want to transform state abbreviations to upper case, for example, “Wa” to “WA”. To do this, we need to first filter out region names with length of two. Again, using “Facet” tool, we can create a “Custom text facet” to choose region names with two letters. The expression goes in the “Expression box” is “length(value) = 2”.
+           <img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorial-i8.png">
+           <p>Then on the left-hand side panel, we will see that there are 12 matching records, we then use “Common transforms” to convert them to uppercase.
+           <img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorial-i9.png">
+               
+           <h3 id="exampleheadseven">Step 7: Manually edit cell value</h3>
+           <p>OpenRefine’s automatic data cleaning and transform functionalities have been very useful so far. However, there are still places that need manual editing. We can edit individual cell values by moving the cursor to the cell to be edited and click “edit”. We do this until every cell is satisfactory.
            
-			   
-			
-			
+           <h3 id="exampleheadeight">Step 8: Delete rows with blank cells</h3>
+           <p>Lastly, we may want to remove the “bad values” or the “outliers”. In the original data, some urls are of invalid format. We could either manually inspect the entire dataset and remove them, or detect them using OpenRefine functionalities. For example, when we did step 4, we ran “split(value, ’.’)[1]” to extract the second element of urls. This step resulted in some blank cells since the urls are invalid, such as “stubox”. Therefore, they do not have a second element. By using the “Facet by blank” tool, we can detect those invalid urls.
+           <img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorial-i10.png">
+            
+           <h3 id="exampleheadnine">Step 9: Exploratory analysis</h3>
+           <p>We could use OpenRefine to do some basic exploratory analysis. For example, if we are interested in examining data portals with more than 4000 resources, we could first sort the table by “item_count”, and then use “numeric facet” to filter the records.
+           <img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorial-i11.png">
+           <img src="http://odl.ischool.uw.edu/assets/img/openrefinetutorial-i12.png">
+               
+           <h3 id="exampleheadten">Step 10: Export and share</h3>
+           <p>Finally, we have transformed a JSON format messy data into a nice table. We can export the resulting table into a variety of formats including Excel and use the “Permalink” in the left-upper part to share the workspace with others.
+           <p>
+               
+           <h2 id="fifthheading">Resources</h2>
+           <p><ul>
+           <li>OpenRefine Github: <a href="https://github.com/OpenRefine/OpenRefine" target="_blank">https://github.com/OpenRefine/OpenRefine</a></li>
+           <li>OpenRefine Tutorial: <a href="http://enipedia.tudelft.nl/wiki/OpenRefine_Tutorial" target="_blank">http://enipedia.tudelft.nl/wiki/OpenRefine_Tutorial</a></li> 
+           <li>More on string operation and regex: <a href="https://github.com/OpenRefine/OpenRefine/wiki/Understanding-Regular-Expressions" target="_blank">https://github.com/OpenRefine/OpenRefine/wiki/Understanding-Regular-Expressions</a></li>
 
-	       	
-		
+           <p>
 
-				
+            <h2 id="fifthheading">Creators</h2>
+            <p>This material is part of <a href="http://odl.ischool.uw.edu/about/" target="_blank">Open Data Literacy Project funded by IMLS grant. 
+            <p>An Yan: Information School, University of Washington
+            <p>Bree Norlander: Information School, University of Washington
+            <p>Carole Palmer: Information School, University of Washington
+            <p>
 
+            <h2 id="fifthheading">References & Credits</h2>
+            <p>1. <a href="http://openrefine.org/" target="_blank">http://openrefine.org/</a>
+            <p>2. <a href="https://socratadiscovery.docs.apiary.io/" target="_blank">https://socratadiscovery.docs.apiary.io/</a>
 
-
-			
-			
-				
-			
+           
+            
+            <p></p>
+            
+            <!--end content above this comment-->
+            
+        </div>
+    </div><! --/row -->
+</div><! --/container -->
