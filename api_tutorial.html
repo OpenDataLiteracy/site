@@ -46,32 +46,34 @@ permalink: /api_tutorial/
             
             <p><b>Step 1:</b> First, take some time to explore Seattle Open Data Portal datasets and choose a dataset that interests you. For example, <a href="https://data.seattle.gov/Transportation/Road-Weather-Information-Stations/egc4-d24i" target="_blank">Road Weather Information Stations</a>. API documentation is in the upper right corner of the data landing page, as shown in the image below: 
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i1-roadweatherinfostations.png">
-            <p>Click “API” and copy the “API Endpoint” using the default JSON data format to a new tab or window in your. Try this again for a different format of the data such as CSV. Finally, click on “API” again, but this time choose the “API Docs” link. 
-            <p><b>Step 2:</b> on the “API Docs” page, read the “Fields” section and try different filters. For example, you can filter the data by specifying the parameter “stationname”. Click “try it” to see what response (data) you get.
+            <p>Click “API” and copy the “API Endpoint” using the default JSON data format to open a new tab or window in your browser. Then, try it again for a different format of the data such as CSV. Finally, click “API” again, but this time, choose the “API Docs” link. 
+            <p><b>Step 2:</b> On the “API Docs” page, read the “Fields” section and try different filters. For example, you can filter the data by specifying the parameter “stationname.” Click “try it” to see what response (data) you get.
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i2-tryit.png">
-            <p><b>Step 3:</b> Go to <a href="https://dev.socrata.com/docs/endpoints.html" target="_blank">https://dev.socrata.com/docs/endpoints.html</a>, review API endpoint concept, and try the examples on the page.
+            <p><b>Step 3:</b> Go to <a href="https://dev.socrata.com/docs/endpoints.html" target="_blank">https://dev.socrata.com/docs/endpoints.html</a>. Review the API endpoint concept, and try the examples on the page.
                 
             <h3 id="fourthheading">Example 2: Retrieve catalog information and metadata using Socrata's API</h3>
             
             <p><h4 id="fourthheadingsubone"><b>Example 2a: Explore catalog-level metadata using Discovery API</b></h4>
             
-            <p><b>Step 1:</b> Go to <a href="https://socratadiscovery.docs.apiary.io/" target="_blank">Discovery API</a>, read the introduction, and scroll through the rest of the content. Try a few examples by clicking on the text boxes that begin with “Search by . . .”. You can also view different code examples by choosing from the drop-down menu under “Request” that is set by default to “Raw”. Take a look at a few code examples, especially if you are familiar with any of the provided languages.
+            <p><b>Step 1:</b> Go to <a href="https://socratadiscovery.docs.apiary.io/" target="_blank">Discovery API</a>, read the introduction, and scroll through the rest of the content. Try a few examples by clicking on the text boxes that begin with “Search by . . .” You can also view different code examples by choosing from the drop-down menu under “Request” that is set by default to “Raw.” Take a look at a few code examples, especially if you are familiar with any of the provided languages.
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i3-findbyid.png">
             <p><b>Step 2:</b> After trying some of the examples in the documentation, try customizing your own API call in a browser window. Here are some examples:
             <p><ul>
-            <li><b>1)</b> Find the list of domains and the  resources count for each Socrata-hosted domain using the following API call (you can copy and paste this into a browser window): <a href="http://api.us.socrata.com/api/catalog/v1/domains" target="_blank">http://api.us.socrata.com/api/catalog/v1/domains</a>.
+            <li><b>1)</b> Find the list of domains and the resource count for each Socrata-hosted domain using the following API call: <a href="http://api.us.socrata.com/api/catalog/v1/domains" target="_blank">http://api.us.socrata.com/api/catalog/v1/domains</a>. (The link should open in a new tab; however, you can also copy and paste it into a new tab or window.)
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i4-thingcodeportal.png">
-            <p>“Thing” represents portals hosted by Socrata and “count” represents the number of resources each portal possesses. You can then search within a particular domain. Here is an example: <a href="http://api.us.socrata.com/api/catalog/v1domains=data.seattle.gov" target="_blank">http://api.us.socrata.com/api/catalog/v1domains=data.seattle.gov</a> (results using Firefox shown below).
+            <p>In the image above (and in the link you followed for the API call above), “thing” represents portals hosted by Socrata, and “count” represents the number of resources each portal possesses. You can then search within a particular domain. 
+            <p>
+            <p>Here is an example: <a href="http://api.us.socrata.com/api/catalog/v1domains=data.seattle.gov" target="_blank">http://api.us.socrata.com/api/catalog/v1domains=data.seattle.gov</a>. Results for this API call are displayed below. 
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i5-domain.png">
-            <p>Try it yourself with a different domain.</li>
+            <p>Try it yourself with a different domain, such as data.nasa.gov.</li>
            
-            <li><b>2)</b> Get all metadata of resources that belong to category “public safety” using the following API call: <a href="http://api.us.socrata.com/api/catalog/v1?categories=public%20safety" target="_blank">http://api.us.socrata.com/api/catalog/v1?categories=public%20safety</a>. As we can see, the results contain metadata records that belong to category “public safety” of all Socrata-hosted portals.
+            <li><b>2)</b> Get all metadata of resources that belong to category “public safety” using the following API call: <a href="http://api.us.socrata.com/api/catalog/v1?categories=public%20safety" target="_blank">http://api.us.socrata.com/api/catalog/v1?categories=public%20safety</a>. In this call, the results contain metadata records that belong to category “public safety” of all Socrata-hosted portals.
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i6-results.png">
             <p>Try the search again with a different category. You can find a list of all possible categories with this API call: <a href="http://api.us.socrata.com/api/catalog/v1/categories" target="_blank">http://api.us.socrata.com/api/catalog/v1/categories.</a></li>
             
             <p><h4 id="fourthheadingsubtwo"><b>Example 2b: Retrieve asset-level metadata of datasets using Metadata API</b></h4>
             
-            <p><b>Step 1:</b> Go to Socrata’s Metadata API page. Read the introduction and try a few examples on this page. For example, you could choose to retrieve all metadata on a domain (see image below). 
+            <p><b>Step 1:</b> Go to Socrata’s Metadata API page. Read the introduction and try a few examples. For example, you could choose to retrieve all metadata on a domain (see image below). 
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i7-retrieveallmetadata.png">
             <p>
             <p><b>Step 2:</b> Customize your API calls to retrieve metadata of interest to you. Add different parameters. For example, you can start by working with existing examples provided by Socrata. 
@@ -79,7 +81,7 @@ permalink: /api_tutorial/
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i8-pagingthroughmetadata.png">
             <p>The API call, <a href="http://evergreen.data.socrata.com/api/views/metadata/v1?limit=10&page=1" target="_blank">http://evergreen.data.socrata.com/api/views/metadata/v1?limit=10&page=1</a> will return the 10 metadata records of page one from <a href="https://evergreen.data.socrata.com" target="_blank">https://evergreen.data.socrata.com</a>. 
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i9-americaincrisis.png">
-            <p>Try these queries with a different domain that you discovered in Example 2a Step 1. For example, we can see the metadata from the seattle domain with the following API call: <a href="http://data.seattle.gov/api/views/metadata/v1/" target="_blank">http://data.seattle.gov/api/views/metadata/v1/</a> (results using Firefox shown below). Notice how we replaced evergreen.data.socrata.com in the URL with data.seattle.gov.
+            <p>Try these queries with a different domain, such as one you discovered in Example 2a, Step 1. For example, we can see the metadata from the Seattle domain with the following API call: <a href="http://data.seattle.gov/api/views/metadata/v1/" target="_blank">http://data.seattle.gov/api/views/metadata/v1/</a>. Notice how we replaced evergreen.data.socrata.com in the URL with data.seattle.gov.
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i10-dataseattlesocrata.png">
             
             
