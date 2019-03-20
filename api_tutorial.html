@@ -13,7 +13,6 @@ permalink: /api_tutorial/
             
             <h2 id="topheader"> Tutorial: APIs for Open Government Data</h2>
             <p>
-            <b> Authored by: An Yan & Bree Norlander</b>
             <p>Collecting data is essential for data curators. In order to learn how to collect data, this tutorial introduces users to the concept of an API. Users will learn examples of and practical guidelines for accessing data and metadata from public sources using APIs. Specifically, this tutorial first teaches users how to work with SODA API, which is provided by an open government data portal provider, <a href="https://socrata.com" target="_blank">Socrata</a>. Once the tutorial is complete, users will know how to retrieve open government datasets and their metadata through the <a href="https://dev.socrata.com/consumers/getting-started.html" target="_blank">SODA API</a>, <a href="https://socratadiscovery.docs.apiary.io/#" target="_blank">Discovery API</a>, and <a href="https://socratametadataapi.docs.apiary.io/#" target="_blank">Metadata API</a>.
             <p>
             <h3 id="nextheaderone"> Learning Objectives </h3>
@@ -23,16 +22,16 @@ permalink: /api_tutorial/
             <h3 id="nextheadertwo"> Prerequisites </h3>
             <p> <ul> 
             <li>Computer and internet access
-            <li>Basic knowledge of any programming language is helpful, but not required</li>
-            <li>Basic understanding of open data and data repositories</li>
-            <li>knowledge of popular open data portal software providers (<a href="https://ckan.org" target="_blank">CKAN</a>, <a href="https://socrata.com" target="_blank">Socrata</a>, <a href="https://dataverse.org" target="_blank">Dataverse</a>, etc.)</li>
-            <li>Familiarity with common web exchange file formats, such as JSON, XML, and CSV</li></ul>
+            <li>Basic understanding of open data and data repositories
+            <li>Basic knowledge of popular open data portal software providers (<a href="https://ckan.org" target="_blank">CKAN</a>, <a href="https://socrata.com" target="_blank">Socrata</a>, <a href="https://dataverse.org" target="_blank">Dataverse</a>, etc.)</li>
+            <li>Basic knowledge of common web exchange file formats, such as JSON, XML, and CSV
+            <li>Basic knowledge of any programming language is helpful, but not required</li></ul>
 
             
             <h2 id="myHeader">Introduction to API</h2>
-            <p>API stands for Application Programming Interface. An API defines how different applications or different software components talk to each other, providing a way for developers to simplify programming. Just as a graphical user interface makes it easier for people to use programs, APIs make it easier for developers to use functions or data from another application (or another component of an application) without needing to know the implementation details [<a href="https://dev.socrata.com/consumers/getting-started.html" target="_blank">1</a>][<a href="https://en.wikipedia.org/wiki/Application_programming_interface#Web_APIs" target="_blank">2</a>].</p>
-            <p>In this tutorial, we will focus on web APIs. Applications such as Facebook, Twitter, and Google Maps provide access to some of their services and data through web APIs, which receive requests and send responses. For example, if you’re an iPhone user and you use Yelp to search for a restaurant, you will see an Apple Map embedded in Yelp showing you the location of the restaurant. However, Yelp doesn't provide map services; instead, it uses Apple’s API to integrate maps into its own functions. Another example of API usage is the ability to use Google or Facebook to log into other platforms. When you sign up for an account on a non-Google, non-Facebook website, you may be given the option to sign in with your Facebook or Google account. When you do so, the website uses a Facebook or Google API to retrieve your account information. </p>
-            <p>The APIs used in this tutorial adhere to an architectural style called REST, which stands for Representational State Transfer. As blogger Sarah Maddox explains, “REST services tend to offer an easy-to-parse URL structure consisting of nouns that reflect the logical hierarchical categories of the data on offer” [<a href="https://ffeathers.wordpress.com/2014/02/16/api-types/" target="_blank">4</a>]. An example of a REST API web URL is: <a href="http://api.us.socrata.com/api/catalog/v1/domains" target="_blank">http://api.us.socrata.com/api/catalog/v1/domains</a>. When using a REST API, you will need to know how to structure your query according to rules, and these rules can usually be found in the API documentation for the web application.</p>
+            <p>API stands for Application Programming Interface. An API defines how different applications or different software components talk to each other, providing a way for developers to simplify programming. Just as a graphical user interface makes it easier for people to use programs, APIs make it easier for developers to use functions or data from another application (or another component of an application) without needing to know the implementation details [<a href="https://www.mulesoft.com/cn/resources/api/what-is-an-api" target="_blank">1</a>][<a href="https://en.wikipedia.org/wiki/Application_programming_interface#Web_APIs" target="_blank">2</a>].</p>
+            <p>In this tutorial, we will focus on web APIs. Applications such as Facebook, Twitter, and Google Maps provide access to some of their services and data through web APIs, which receive requests and send responses. For example, if you’re an iPhone user and you use Yelp to search for a restaurant, you will see an Apple Map embedded in Yelp showing you the location of the restaurant. Yelp doesn't provide map services; instead, it uses Apple’s API to integrate maps into its own functions. Another example of API usage is the ability to use Google or Facebook to log into other platforms. When you sign up for an account on a non-Google, non-Facebook website, you may be asked to sign in with your Facebook or Google account. When you do so, the website uses a Facebook or Google API to retrieve your account information.</p>
+            <p>The APIs used in this tutorial adhere to an architectural style called REST, which stands for Representational State Transfer. As blogger Sarah Maddox explains, “REST services tend to offer an easy-to-parse URL structure consisting of nouns that reflect the logical hierarchical categories of the data on offer” [<a href="https://ffeathers.wordpress.com/2014/02/16/api-types/" target="_blank">3</a>]. An example of a REST API web URL is: <a href="http://api.us.socrata.com/api/catalog/v1/domains" target="_blank">http://api.us.socrata.com/api/catalog/v1/domains</a>. When using a REST API, you will need to know how to structure your query according to rules, and these rules can usually be found in the API documentation for the web application.</p>
             <p>Why should we learn about API? Software developers use APIs to create well-structured applications, and data scientists and data curators use APIs to collect large amounts of data automatically. Thus, learning to access data and metadata using an API will be the main objective of this tutorial.</p>
                 
             <h2 id="secondheading">Example Overview</h2>
@@ -40,16 +39,16 @@ permalink: /api_tutorial/
                 <p> <ul> 
             <li>Example 1: Retrieve open data from open government data platforms using an API</li>
             <li>Example 2: Retrieve open government data metadata using API</li></ul>
-            <p>The underlying software, Socrata, provides APIs for accessing, filtering, and downloading data and metadata.</p>
+            <p>The underlying software, Socrata, provides APIs for accessing, filtering, and downloading data and metadata. To learn more about Socrata's API, visit their <a href="https://dev.socrata.com/consumers/getting-started.html" target="_blank">API starter guide</a>.</p>
             
             <h3 id="thirdheading">Example 1: Retrieve data from Socrata Platforms</h3>
             
             <p><b>Step 1:</b> First, take some time to explore Seattle Open Data Portal datasets and choose a dataset that interests you. For example, <a href="https://data.seattle.gov/Transportation/Road-Weather-Information-Stations/egc4-d24i" target="_blank">Road Weather Information Stations</a>. API documentation is in the upper right corner of the data landing page, as shown in the image below: 
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i1-roadweatherinfostations.png">
             <p>Click “API” and copy the “API Endpoint” using the default JSON data format. Then, open a new tab or window and paste the link into the browser. Then, try it again, selecting a different data format, such as CSV. Finally, click “API” again, but this time, click “API Docs," instead of using an endpoint. 
-            <p><b>Step 2:</b> On the “API Docs” page, scroll down to “Fields." Read through this section, and then try different filters. For example, you can filter the data by specifying the parameter “stationname.” Click “try it” to see what response (data) you get.
+            <p><b>Step 2:</b> On the “API Docs” page, scroll down to “Fields." Read through this section, and then try different fields, and their subsequent filters. To do so, click the “+” next to a field.  For example, when you expand “stationname” (see image below), you can see a sample filter by clicking “try it.” This shows you what type of response (data) you will get.
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i2-tryit.png">
-            <p><b>Step 3:</b> Go to <a href="https://dev.socrata.com/docs/endpoints.html" target="_blank">https://dev.socrata.com/docs/endpoints.html</a>. Review the API endpoint concept, and try the examples on the page.
+            <p><b>Step 3:</b> Now, go to <a href="https://dev.socrata.com/docs/endpoints.html" target="_blank">https://dev.socrata.com/docs/endpoints.html</a>. Review the API endpoint concept, and try the examples on the page.
                 
             <h3 id="fourthheading">Example 2: Retrieve catalog information and metadata using Socrata's API</h3>
             
@@ -67,13 +66,13 @@ permalink: /api_tutorial/
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i5-domain.png">
             <p>Try it yourself with a different domain, such as data.nasa.gov.</li>
            
-            <li><b>2)</b> Get all metadata of resources that belong to category “public safety” using the following API call: <a href="http://api.us.socrata.com/api/catalog/v1?categories=public%20safety" target="_blank">http://api.us.socrata.com/api/catalog/v1?categories=public%20safety</a>. In this call, the results contain metadata records that belong to category “public safety” of all Socrata-hosted portals.
+            <li><b>2)</b> Get all metadata of resources that belong to category “public safety” using the following API call: <a href="http://api.us.socrata.com/api/catalog/v1?categories=public%20safety" target="_blank">http://api.us.socrata.com/api/catalog/v1?categories=public%20safety</a>. In this call, the results contain metadata records that belong to category “public safety” of all Socrata-hosted portals (see image below).
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i6-results.png">
             <p>Try the search again with a different category. You can find a list of all possible categories with this API call: <a href="http://api.us.socrata.com/api/catalog/v1/categories" target="_blank">http://api.us.socrata.com/api/catalog/v1/categories.</a></li>
             
             <p><h4 id="fourthheadingsubtwo"><b>Example 2b: Retrieve asset-level metadata of datasets using Metadata API</b></h4>
             
-            <p><b>Step 1:</b> Go to Socrata’s Metadata API page. Read the introduction and try a few examples. For example, you could choose to retrieve all metadata on a domain (see image below). 
+            <p><b>Step 1:</b> Go to Socrata’s <a href="https://socratametadataapi.docs.apiary.io/#" target="_blank">Metadata API</a> page. Read the introduction and try a few examples. For example, you could choose to retrieve all metadata on a domain (see image below). 
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i7-retrieveallmetadata.png">
             <p>
             <p><b>Step 2:</b> Customize your API calls to retrieve metadata of interest to you. Add different parameters. For example, you can start by working with existing examples provided by Socrata. 
@@ -81,7 +80,7 @@ permalink: /api_tutorial/
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i8-pagingthroughmetadata.png">
             <p>The API call, <a href="http://evergreen.data.socrata.com/api/views/metadata/v1?limit=10&page=1" target="_blank">http://evergreen.data.socrata.com/api/views/metadata/v1?limit=10&page=1</a> will return the 10 metadata records of page one from <a href="https://evergreen.data.socrata.com" target="_blank">https://evergreen.data.socrata.com</a>. 
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i9-americaincrisis.png">
-            <p>Try these queries with a different domain, such as one you discovered in Example 2a, Step 1. For example, we can see the metadata from the Seattle domain with the following API call: <a href="http://data.seattle.gov/api/views/metadata/v1/" target="_blank">http://data.seattle.gov/api/views/metadata/v1/</a>. Notice how we replaced evergreen.data.socrata.com in the URL with data.seattle.gov.
+            <p>Try these queries with a different domain, such as one you discovered in Example 2a, Step 1. For example, we can see the metadata from the Seattle domain with the following API call: <a href="http://data.seattle.gov/api/views/metadata/v1/" target="_blank">http://data.seattle.gov/api/views/metadata/v1/</a>. Notice how we replaced evergreen.data.socrata.com in the URL with data.seattle.gov (see image below).
             <p><img src="http://odl.ischool.uw.edu/assets/img/apitutorial-i10-dataseattlesocrata.png">
             
             
@@ -115,8 +114,7 @@ permalink: /api_tutorial/
             <h2 id="fifthheading">References & Credits</h2>
             <p>1. Mulesoft. (n.d.). What is an API? (Application Programming Interface). Retreived March 7, 2019, from <a href="https://www.mulesoft.com/cn/resources/api/what-is-an-api" target="_blank">https://www.mulesoft.com/cn/resources/api/what-is-an-api</a>
             <p>2. Wikipedia. (2019, March 5). Application programming interface. Retrieved March 7, 2019, from <a href="https://en.wikipedia.org/wiki/Application_programming_interface#Web_APIs" target="_blank">https://en.wikipedia.org/wiki/Application_programming_interface#Web_APIs</a> 
-            <p>3. Geary, David M. Core JavaServer Faces, 3/e. Pearson Education India, 2004. 
-            <p>4. Maddox, S. (2014, February 16). API Types. Retrieved March 7, 2019, from <a href="https://ffeathers.wordpress.com/2014/02/16/api-types/" target="_blank">https://ffeathers.wordpress.com/2014/02/16/api-types/</a>
+            <p>3. Maddox, S. (2014, February 16). API Types. Retrieved March 7, 2019, from <a href="https://ffeathers.wordpress.com/2014/02/16/api-types/" target="_blank">https://ffeathers.wordpress.com/2014/02/16/api-types/</a>
 
            
             
