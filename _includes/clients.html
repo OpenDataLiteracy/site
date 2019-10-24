@@ -6,6 +6,7 @@
             {% for client in site.clients %}
                 <div class="col-lg-2 col-md-2 col-sm-2">
                     <img src="{{ "/assets/img/clients/" | prepend: site.baseurl }}{{ client.img }}" class="img-responsive">
+                    <figcaption>{{ client.name }}</figcaption>
                 </div>
             {% endfor %}
             </div>
