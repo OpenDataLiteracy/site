@@ -4,7 +4,7 @@
             <h3>OUR PARTNERS</h3>
             <div class="row fix">
             {% for client in site.clients %}
-                <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="col-lg-6 col-md-6 col-sm-6">
                     <img src="{{ "/assets/img/clients/" | prepend: site.baseurl }}{{ client.img }}" class="img-responsive">
                 </div>
             {% endfor %}
