@@ -136,8 +136,8 @@ clients:
     img: SPL-Logo.png
   - name: WA Office of the Chief Information Officer
     img: OCIOthumb.png
-  - name: WA State Historical Society
-    img: wshs-logo.png
+  - name: Asotin County Libraries
+    img: acl_logo.png
   - name: WA State Library
     img: WA_Library.png
 
