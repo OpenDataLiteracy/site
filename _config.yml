@@ -38,6 +38,8 @@ social:
     url: https://twitter.com/ODLiteracy
   - title: medium
     url: https://medium.com/open-data-literacy
+  - title: github
+    url: https://github.com/OpenDataLiteracy
 
 # Postal address (add as many lines as necessary). Shown in footer and on Contact page.
 address:
