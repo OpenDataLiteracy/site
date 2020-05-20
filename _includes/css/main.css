@@ -70,6 +70,18 @@ ul {
     padding-left: 20px;
 }
 
+nav ul, footer ul {
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+    background-color: #CED8DD
+}
+nav ul li, footer ul li {
+    display: inline;
+    margin-right: 20px;
+    background-color: #CED8DD
+}
+
 ol {
     margin-left: 0;
     padding-left: 26px;
