@@ -106,10 +106,6 @@ a:focus {
   color:{{ site.colors.link_hover }};
 }
 
-li a:hover {
-  background-color: #8ecae7;
-  color: white;
-
 ::-moz-selection  {
 	color: #fff;
 	text-shadow:none;
